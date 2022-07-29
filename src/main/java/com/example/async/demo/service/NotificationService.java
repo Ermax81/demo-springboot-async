@@ -18,8 +18,11 @@ public class NotificationService {
 
     @Async
     public void sendMessage(String phoneNumber) {
-        sleep(10);
+        sleep(5);
         System.out.println("Call 3rd party service to send message [ThreadName=" + Thread.currentThread().getName() + "]");
+
+        System.out.println(2/0); //introducing division by zero error to throw exception (java.lang.ArithmeticException: / by zero)
+        // NB: we want to catch this exception -> Check AsyncConfig
     }
 
 }
